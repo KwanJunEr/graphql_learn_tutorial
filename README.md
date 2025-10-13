@@ -221,3 +221,17 @@ query {
 }
 <code>
 </pre>
+
+
+<h1> GraphQL Client </h1>
+<pre>
+<code>
+query GetUsers {
+  getUsers {
+    age
+    name
+  }
+}
+</code>
+</pre>
+<p> In GraphQL, a query like this acts as the "API call" that the frontend will make to fetch data.

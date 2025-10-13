@@ -39,7 +39,14 @@ const resolvers={
     },
     Mutation: {
        createUser: (parent, args)=>{
-        
+        const {name, age, isMarried} = args;
+        const newUser = {
+            id: (users.length + 1).toString(),
+            name,
+            age,
+            isMarried
+        };
+        users.push(newUser);
        }
     },
 }
