@@ -151,3 +151,14 @@ const resolvers = {
 
 </code>
 </pre>
+
+
+<h2> typeDefs & resolvers</h2>
+<h4>typeDefs</h4>
+<p>
+typeDefs is short for type definitions and define the types,queries, and mutations in th GraphQL API 
+</p>
+<h4>Resolvers</h4>
+<p>
+Resolvers define how that data is fetched or modified in reality
+</p>
