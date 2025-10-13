@@ -162,3 +162,62 @@ typeDefs is short for type definitions and define the types,queries, and mutatio
 <p>
 Resolvers define how that data is fetched or modified in reality
 </p>
+
+
+<h2>[User] vs User </h2>
+<ul>
+<li>
+    User ->A single User Object
+</li>
+<li>
+  [User] -> A list(array) of User objects.
+</li>
+</ul>
+
+
+<h2> GraphQL Resolver Function </h2>
+<pre>
+<code>
+fieldName(parent, args, context, info) => { ... }
+</code>
+</pre>
+<h3> Parent </h3>
+<p>
+parent(sometimes called the root) --> the results returned from the parent resolver, mainly in nested fields
+</p>
+<h6>Example Code: </h6>
+<pre>
+<code>
+const resolvers = {
+  Query: {
+    getPosts: () => [
+      { id: 1, title: "Hello", authorId: 2 },
+      { id: 2, title: "World", authorId: 3 }
+    ]
+  },
+  Post: {
+    author: (parent) => {
+      // parent = { id:1, title:"Hello", authorId:2 }
+      return users.find(u => u.id === parent.authorId);
+    }
+  }
+}
+
+</code>
+</pre>
+
+<h3>Args</h3>
+<p>
+args is the anonymous argument passed to the query or mutation by the client to resolve which specific data to fetch or modify 
+</p>
+<h6> Example Code </h6>
+<pre>
+<code>
+query {
+  getUserById(id: "2") {
+    id
+    name
+  }
+}
+<code>
+</pre>
