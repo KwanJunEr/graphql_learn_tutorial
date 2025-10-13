@@ -9,4 +9,10 @@ npm init --yes && npm pkg set type="module"
 </code>
 </pre>
 This line of code helps to initialie a new Node.js project in the current folder,creating a package.json file automatically  and the npm pkg set type="module" tells the Node.js that your project uses ES Modules (ESM) instead of Common JS
+<br>
+<pre>
+<code>
+npm install @apollo/server graphql
+</code>
+</pre>
 </p>
