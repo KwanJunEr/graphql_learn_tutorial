@@ -10,6 +10,7 @@ npm init --yes && npm pkg set type="module"
 </pre>
 This line of code helps to initialie a new Node.js project in the current folder,creating a package.json file automatically  and the npm pkg set type="module" tells the Node.js that your project uses ES Modules (ESM) instead of Common JS
 <br>
+<h2> Apollo Server NPM Package Installation </h2>
 <pre>
 <code>
 npm install @apollo/server graphql
@@ -235,3 +236,79 @@ query GetUsers {
 </code>
 </pre>
 <p> In GraphQL, a query like this acts as the "API call" that the frontend will make to fetch data.
+
+<h2>Apollo Installation for Client </h2>
+<pre>
+<code>
+npm install @apollo/client graphql 
+</code>
+</pre>
+
+<h1>Apollo Client Update to v4 </h1>
+<p>As of September 2025, Apollo Client has been updated to Version 4, whih introduced some structural changes that may cause compatability issues with older tutorial code </p>
+
+<h5>Need to install this </h5>
+<pre>
+<code>
+npm install rxjs
+</code>
+</pre>
+
+<h5>Changes to Code Structure for Client Side </h5>
+<pre>
+<code>
+import {ApolloClient, HttpLink, InMemoryCache} from '@apollo/client'
+import {ApolloProvider} from "@apollo/client/react"
+
+const client = new ApolloClient({
+  link:new HttpLink({
+    uri: "http://localhost:4000/",
+  }),
+  cache: new InMemoryCache(),
+})
+</code>
+</pre>
+<p>Inthe Apollo Client, now you need to import ApolloProvider from @apollo/client/react. And make changes to how you write the ApolloClient</p>
+
+<hr/>
+<pre>
+<code>
+  import { useQuery, useMutation, useLazyQuery } from '@apollo/client/react';
+import './App.css'
+import { gql } from '@apollo/client';
+
+const GET_USERS= gql`
+  query GetUsers {
+    getUsers{
+      id
+      age
+      name
+      isMarried
+    }
+  }
+`
+</code>
+</pre>
+
+<p>
+Update these imports as well
+</p>
+
+<pre>
+<code>
+import { useQuery, useMutation, useLazyQuery } from '@apollo/client/react';
+import './App.css'
+import { gql } from '@apollo/client';
+
+const GET_USERS= gql`
+  query GetUsers {
+    getUsers{
+      id
+      age
+      name
+      isMarried
+    }
+  }
+`
+</code>
+</pre>
