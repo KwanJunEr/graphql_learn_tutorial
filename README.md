@@ -312,3 +312,6 @@ const GET_USERS= gql`
 `
 </code>
 </pre>
+
+<h1>Alternative To GraphQL debugging</h1>
+<p>Altair: https://altairgraphql.dev/</p>
