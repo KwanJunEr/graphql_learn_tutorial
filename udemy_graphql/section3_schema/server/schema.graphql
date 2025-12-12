@@ -1,0 +1,19 @@
+type Query{
+    # greeting: String
+    jobs: [Job!]!
+}
+
+type Company{
+    id: ID!
+    name: String!
+    description: String
+}
+#This is a regular comment.
+ type Job{
+    id: ID!
+    """ This is a documentation comment! """
+    name: String 
+    description: String
+    date: String
+    company: Company!
+ }
