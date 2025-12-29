@@ -8,7 +8,7 @@ import { resolvers } from './resolvers.js';
 import { getUser } from './db/users.js';
 
 const PORT = 9000;
-
+//
 const app = express();
 app.use(cors(), express.json(), authMiddleware);
 
