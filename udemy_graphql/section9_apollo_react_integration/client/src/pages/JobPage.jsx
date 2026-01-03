@@ -3,13 +3,15 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../lib/formatters';
 import { getJob } from '../lib/graphql/queries';
+import { useJob } from '../lib/graphql/hooks';
 
 function JobPage() {
   const { jobId } = useParams();
-  const [job, setJob] = useState();
-  useEffect(() => {
-    getJob(jobId).then(setJob);
-  }, [jobId]);
+  const {job, loading, error} = useJob(jobId);
+  // const [job, setJob] = useState();
+  // useEffect(() => {
+  //   getJob(jobId).then(setJob);
+  // }, [jobId]);
 
   console.log('[JobPage] job:', job);
   if (!job) {
